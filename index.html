@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SALAWE ALUMNI KOBA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0f172a;color:#fff}
+.topbar{background:#0a1a3a;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.apply{background:#7a3b00;color:#fff;padding:10px 16px;border-radius:10px;font-weight:800;font-size:13px;border:none;line-height:1.2}
+.header{background:#0a1a3a;display:flex;align-items:center;gap:12px;padding:16px}
+.logo{width:58px;height:58px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#0a3d91;font-size:18px;border:3px solid #d4af37}
+.header h2{font-size:18px}.header p{color:#d4af37;font-size:12px;font-weight:700}
+.hero{position:relative;height:280px;background:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800') center/cover}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#0f172a 5%,transparent 60%)}
+.hero-txt{position:absolute;bottom:20px;left:14px;right:14px;z-index:2}
+.hero-txt span{background:#7a3b00;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:800}
+.hero-txt h1{font-size:22px;margin:10px 0 5px;line-height:1.2}.hero-txt p{font-size:13px;opacity:.9}
+.card{background:#1e293b;margin:16px;padding:22px;border-radius:22px;border:1px solid #d4af37}
+.card h2{font-size:26px;font-family:serif}.card p{font-size:12px;color:#94a3b8;margin:6px 0 14px}
+.card select{width:100%;background:#0f172a;color:#fff;padding:14px;border:1px solid #334155;border-radius:12px;margin:10px 0}
+.btn-blue{width:100%;background:#2563eb;color:#fff;border:none;padding:14px;border-radius:25px;font-weight:800}
+.box{background:#1e293b;margin:0 16px 16px;padding:20px;border-radius:22px;border:1px solid #d4af37}
+.box h2{font-size:20px;margin-bottom:14px}
+.box input{width:100%;padding:14px;border-radius:12px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:12px}
+.btn{width:100%;background:#2563eb;color:#fff;border:none;padding:15px;border-radius:12px;font-weight:800}
+.btn-gold{background:#d4af37;color:#0a1a3a}
+.btn-green{background:#16a34a;color:#fff}
+.hidden{display:none!important}
+.salio{background:#0a3d62;border-radius:16px;padding:20px;text-align:center}
+.salio h1{font-size:32px}
+.item{display:flex;justify-content:space-between;background:#0f172a;padding:12px;border-radius:12px;margin-top:10px}
+.member{background:#0f172a;padding:14px;border-radius:12px;margin-top:10px;border-left:4px solid #d4af37}
+.footer{text-align:center;font-size:12px;color:#94a3b8;padding:18px}
+</style></head>
+<body>
+<div class="topbar"><div>📞 +255 622 016 657<br>laurent.salawe@gmail.com</div><button class="apply" onclick="document.getElementById('koba').scrollIntoView({behavior:'smooth'})">JIUNGE<br>NA KOBA</button></div>
+<div class="header"><div class="logo">SAK</div><div><h2>SALAWE ALUMNI KOBA</h2><p>(SAK) Salawe-Shinyanga</p></div></div>
+<div class="hero"><div class="hero-txt"><span>UMOJA</span><h1>MAZINGIRA BORA YA KUJIFUNZIA NA KUSAIDIANA</h1><p>Alumni wa Salawe tujenge pamoja, tusaidiane pamoja.</p></div></div>
+<div class="card"><h2>Find your KOBA</h2><p>Chagua mwaka uone wanachama wenzako</p><select><option>Choose level</option><option>KOBA - 1,000 / Wiki</option><option>Alumni - Wote</option></select><button class="btn-blue" onclick="document.getElementById('koba').scrollIntoView({behavior:'smooth'})">🔍 SEARCH</button></div>
+<div id="koba" class="box">
+<div id="regPage"><h2 style="text-align:center">JISAJILI KWANZA</h2><input id="rName" placeholder="Jina Kamili"><input id="rUser" placeholder="Username"><input id="rPass" type="password" placeholder="Password"><input id="rYear" placeholder="Mwaka wa Kuhitimu (mf: 2018)"><input id="rPhone" placeholder="Namba ya Simu"><input id="rJob" placeholder="Kazi / Makazi"><button class="btn" onclick="register()">JISAJILI SASA</button><p style="text-align:center;margin-top:12px;font-size:13px">Una akaunti? <b style="color:#d4af37" onclick="show('loginPage')">Ingia Hapa</b> | <b style="color:#4ade80" onclick="show('adminLogin')">Admin</b></p></div>
+<div id="loginPage" class="hidden"><h2 style="text-align:center">INGIA KWENYE KOBA</h2><input id="lUser" placeholder="Username yako"><input id="lPass" type="password" placeholder="Password"><button class="btn" onclick="login()">INGIA →</button><p style="text-align:center;margin-top:12px;font-size:13px">Huna akaunti? <b style="color:#d4af37" onclick="show('regPage')">Jisajili Hapa</b></p></div>
+<div id="adminLogin" class="hidden"><h2 style="text-align:center">ADMIN - LAURENT</h2><input id="aUser" placeholder="Admin Username"><input id="aPass" type="password" placeholder="Admin Password"><button class="btn btn-gold" onclick="adminLogin()">INGIA KAMA ADMIN →</button><p style="text-align:center;margin-top:12px;font-size:13px"><b style="color:#d4af37" onclick="show('regPage')">Rudi</b></p></div>
+<div id="adminPage" class="hidden"><h2>👤 ADMIN - Wanachama Wote</h2><div class="salio"><small>Jumla ya Michango</small><h1 id="adminTotal">TZS 0</h1><p id="adminCount">Wanachama: 0</p></div><div id="adminList"></div><button class="btn" style="background:#eee;color:#333;margin-top:14px" onclick="logout()">Toka Admin</button></div>
+<div id="dashPage" class="hidden"><h2 id="greet">Habari</h2><br><div class="salio"><small style="color:#ffdf6b">SALIO LAKO - KOBA</small><h1 id="salio">TZS 0</h1><p id="jumlaTxt">Umechangia: TZS 0</p></div><div id="hist"></div><button class="btn btn-gold" style="margin-top:16px" onclick="changa()">+ Changa TZS 1,000 Sasa</button><button class="btn btn-green" style="margin-top:10px" onclick="sendWhatsAppChanga()">📱 Tuma Uthibitisho kwa Admin (WhatsApp)</button><button class="btn" style="background:#eee;color:#333;margin-top:10px" onclick="logout()">Toka</button></div>
+</div>
+<div class="box"><h2>🅰️ About SALAWE ALUMNI KOBA</h2><p style="font-size:14px;line-height:1.6;color:#cbd5e1">SALAWE Alumni KOBA ni jukwaa la wanafunzi wa zamani wa Salawe - Shinyanga. Mchango ni TZS 1,000 tu kwa wiki. Admin: Laurent - +255 622 016 657</p></div>
+<div class="footer">© 2026 SALAWE ALUMNI KOBA | Admin Laurent | +255 622 016 657 | Salawe - Shinyanga</div>
+<script>
+var users=JSON.parse(localStorage.getItem('salawe_users')||'{}');var current=null;
+function save(){localStorage.setItem('salawe_users',JSON.stringify(users));}
+function show(id){['regPage','loginPage','adminLogin','adminPage','dashPage'].forEach(function(x){document.getElementById(x).classList.add('hidden')});document.getElementById(id).classList.remove('hidden');}
+function register(){var n=document.getElementById('rName').value.trim();var u=document.getElementById('rUser').value.trim().toLowerCase();var p=document.getElementById('rPass').value;var y=document.getElementById('rYear').value;var ph=document.getElementById('rPhone').value;var j=document.getElementById('rJob').value;if(!n||!u||!p){alert('Jaza Jina, Username na Password');return;}users[u]={name:n,user:u,pass:p,year:y,phone:ph,job:j,total:0,hist:[]};save();var msg='HELLO ADMIN LAURENT! Mwanachama Mpya SALAWE ALUMNI KOBA:%0A%0A👤 Jina: '+encodeURIComponent(n)+'%0A🎓 Mwaka: '+encodeURIComponent(y)+'%0A📞 Simu: '+encodeURIComponent(ph)+'%0A💼 Kazi: '+encodeURIComponent(j)+'%0A👤 Username: '+encodeURIComponent(u);window.open('https://wa.me/255622016657?text='+msg,'_blank');alert('Hongera '+n+'! Umejisajili. Tumetuma taarifa kwa Admin WhatsApp.');document.getElementById('lUser').value=u;show('loginPage');}
+function login(){var u=document.getElementById('lUser').value.trim().toLowerCase();var p=document.getElementById('lPass').value;var x=users[u];if(!x||x.pass!==p){alert('Username au Password sio sahihi');return;}current=x;render();show('dashPage');}
+function adminLogin(){var u=document.getElementById('aUser').value.trim().toLowerCase();var p=document.getElementById('aPass').value;if(u!=='admin'||p!=='laurent123'){alert('Admin Username au Password sio sahihi');return;}var keys=Object.keys(users);var total=0;keys.forEach(function(k){total+=users[k].total;});document.getElementById('adminTotal').innerText='TZS '+total.toLocaleString();document.getElementById('adminCount').innerText='Wanachama: '+keys.length+' | Jumla: TZS '+total.toLocaleString();var l=document.getElementById('adminList');l.innerHTML='';if(keys.length==0){l.innerHTML='<p style="text-align:center;color:#888;padding:10px">Hakuna mwanachama bado kwenye simu hii</p>';}keys.forEach(function(k){var m=users[k];l.innerHTML+='<div class="member"><b>'+m.name+'</b> ('+m.user+')<br>🎓 Mwaka: '+m.year+' | 📞 '+m.phone+'<br>💼 '+m.job+'<br>💰 Jumla: <b style="color:#4ade80">TZS '+m.total.toLocaleString()+'</b> | Michango: '+m.hist.length+'</div>';});show('adminPage');}
+function render(){document.getElementById('greet').innerText='Habari, '+current.name;document.getElementById('salio').innerText='TZS '+current.total.toLocaleString();document.getElementById('jumlaTxt').innerText='Umechangia: TZS '+current.total.toLocaleString();var h=document.getElementById('hist');h.innerHTML='';if(current.hist.length==0){h.innerHTML='<p style="text-align:center;color:#888;padding:10px">Hujachanga bado</p>';return;}current.hist.slice().reverse().forEach(function(c){h.innerHTML+='<div class="item"><span>💰 Mchango 1,000<br><small>'+c+'</small></span><b style="color:#4ade80">+1,000</b></div>';});}
+function changa(){if(!confirm('Changa 1,000 sasa?'))return;current.total+=1000;current.hist.push(new Date().toLocaleDateString());save();render();alert('Asante! Salio lako ni '+current.total.toLocaleString()+' - Sasa tuma uthibitisho kwa Admin WhatsApp');}
+function sendWhatsAppChanga(){var msg='HELLO ADMIN! Mchango Mpya SALAWE KOBA:%0A%0A👤 Jina: '+encodeURIComponent(current.name)+'%0A📞 Simu: '+encodeURIComponent(current.phone)+'%0A💰 Kachanga: 1,000%0A💰 Jumla Yake: '+current.total+'%0A📅 Tarehe: '+encodeURIComponent(new Date().toLocaleDateString());window.open('https://wa.me/255622016657?text='+msg,'_blank');}
+function logout(){current=null;show('loginPage');}
+</script></body></html>

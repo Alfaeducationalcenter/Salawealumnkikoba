@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SALAWE ALUMNI KOBA</title>
+<meta name="theme-color" content="#0A1A5E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#111;color:#fff;padding:12px}
+.top{background:linear-gradient(135deg,#0A1A5E,#1E40FF);padding:22px 12px;border-radius:16px;text-align:center}
+.logo{width:90px;height:90px;background:#C9A227;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:48px;margin:0 auto 10px;border:4px solid #fff}
+.top h1{font-size:24px}.top p{margin-top:8px;font-size:13px;opacity:.9}
+.install{background:#C9A227;color:#000;text-align:center;padding:12px;border-radius:12px;margin-top:12px;font-weight:bold;cursor:pointer}
+.card{background:#222;border:1px solid #C9A227;border-radius:16px;padding:18px;margin-top:12px}
+.card h2{text-align:center;font-size:22px}
+input,select,textarea{width:100%;padding:13px;border-radius:10px;background:#333;color:#fff;border:1px solid #555;margin-top:10px;font-size:16px}
+button{width:100%;border:none;padding:14px;border-radius:25px;font-weight:bold;font-size:16px;margin-top:14px}
+.b1{background:#1E40FF;color:#fff}.b2{background:#25D366;color:#fff}.b3{background:#555;color:#fff}.bGold{background:#C9A227;color:#000}.bOrange{background:#FF6B00;color:#fff}
+.link{text-align:center;margin-top:12px;color:#8AB4FF;font-size:14px}
+.saldo{background:#0A1A5E;padding:16px;border-radius:14px;text-align:center;margin-top:12px}.saldo h3{font-size:36px}
+.hrow{background:#333;padding:10px;border-radius:8px;margin-top:8px;display:flex;justify-content:space-between;font-size:14px}
+.hide{display:none!important}.foot{text-align:center;color:#888;font-size:12px;margin:14px 0}
+.notice{background:#0A1A5E;padding:10px;border-radius:10px;text-align:center;font-size:13px;margin-top:10px}
+.popup{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;padding:15px;z-index:999}
+.popup-box{background:#222;border:2px solid #C9A227;border-radius:18px;padding:20px;width:100%;max-width:420px;max-height:92vh;overflow-y:auto}
+.koba-num{background:#0A1A5E;padding:15px;border-radius:12px;text-align:center;margin:12px 0}
+.koba-num h3{font-size:34px;letter-spacing:2px;color:#FFE082}
+.net-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.net-grid button{padding:12px;border-radius:12px;font-size:13px;margin:0}
+.net-active{outline:3px solid #fff!important;transform:scale(1.03)}
+.copy-btn{background:#C9A227;color:#000;padding:10px 15px;border-radius:20px;font-size:14px;margin-top:8px}
+.announce{background:#333;border-left:4px solid #C9A227;padding:12px;border-radius:10px;margin-top:10px}
+.announce b{color:#FFE082}
+.admin-card{background:#1a2a6c;padding:12px;border-radius:12px;margin-top:10px}
+.admin-card b{color:#FFE082}
+.tabs{display:flex;gap:8px;margin-top:12px}
+.tabs button{flex:1;padding:10px;font-size:13px;border-radius:20px}
+.tab-active{background:#C9A227!important;color:#000!important}
+.steps{background:#333;padding:14px;border-radius:12px;margin-top:12px;font-size:14px;line-height:1.8}
+.steps b{color:#FFE082}
+.verify-box{background:#0A1A5E;border:2px dashed #C9A227;padding:15px;border-radius:12px;margin-top:12px}
+.verify-box h3{text-align:center;color:#FFE082}
+.example{background:#333;padding:10px;border-radius:8px;font-size:12px;color:#aaa;margin-top:8px;line-height:1.6}
+.admin-login-card{border:2px solid #C9A227!important;background:linear-gradient(135deg,#1a2a6c,#0A1A5E)!important}
+.admin-login-card h2{color:#FFE082}
+.sync{position:fixed;top:10px;right:10px;background:#25D366;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:bold;z-index:1000}
+.sync-off{background:#FF6B00!important}
+</style>
+</head>
+<body>
+<div id="syncStatus" class="sync">🔥 Firebase: Inaunganisha...</div>
+<div class="top">
+<div class="logo">🎓</div>
+<h1>SALAWE ALUMNI KOBA</h1>
+<p>Elimu ni Ufunguo wa Maisha<br>Admin: Laurent | +255 622 016 657<br>Lipa Namba: 2290712</p>
+</div>
+<div class="install" onclick="installApp()">📲 WEKA APP YA KOBA KWENYE SIMU YAKO</div>
+<div class="card"><h2>📢 MATANGAZO YA KOBA</h2><div id="announceList"></div></div>
+<div class="card" id="reg">
+<h2>📝 JISAJILI</h2>
+<input id="rJina" placeholder="Jina Kamili">
+<input id="rSimu" placeholder="Namba ya Simu - 0762..." type="tel">
+<select id="rMwaka"><option value="">Chagua Mwaka Uliomaliza</option><option>1990</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option><option>1995</option><option>1996</option><option>1997</option><option>1998</option><option>1999</option><option>2000</option><option>2001</option><option>2002</option><option>2003</option><option>2004</option><option>2005</option><option>2006</option><option>2007</option><option>2008</option><option>2009</option><option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option><option>2015</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option></select>
+<input id="rPass" placeholder="Weka Password" type="password">
+<button class="b1" onclick="jisajili()">JISAJILI SASA</button>
+<div class="link" onclick="onyesha('login')">Tayari una Akaunti? INGIA</div>
+<div class="link" style="color:#FFE082;font-weight:bold" onclick="onyesha('adminLogin')">👑 Mimi ni ADMIN - Ingia Hapa</div>
+</div>
+<div class="card hide" id="login">
+<h2>🔐 INGIA</h2>
+<input id="lSimu" placeholder="Namba ya Simu" type="tel">
+<input id="lPass" placeholder="Password" type="password">
+<button class="b1" onclick="ingia()">INGIA</button>
+<div class="link" onclick="onyesha('reg')">Huna Akaunti? JISAJILI</div>
+<div class="link" style="color:#FFE082;font-weight:bold" onclick="onyesha('adminLogin')">👑 Mimi ni ADMIN - Ingia Hapa</div>
+</div>
+<div class="card hide admin-login-card" id="adminLogin">
+<h2>👑 INGIA KAMA ADMIN</h2>
+<p style="text-align:center;color:#ccc;font-size:13px;margin-top:6px">Kwa Laurent pekee!</p>
+<label style="font-size:13px;font-weight:bold;display:block;margin-top:12px">📱 Namba ya Simu ya Admin</label>
+<input id="aSimu" placeholder="0622016657" type="tel" value="0622016657">
+<label style="font-size:13px;font-weight:bold;display:block;margin-top:8px">🔑 Password ya Admin</label>
+<input id="aPass" placeholder="Weka Password ya Admin" type="password">
+<button class="bGold" onclick="ingiaAdmin()">👑 INGIA KWENYE UKUMBI WA ADMIN</button>
+<div class="link" onclick="onyesha('login')">⬅️ Mimi si Admin - Ingia kama Mwanachama</div>
+</div>
+<div class="card hide" id="dash">
+<h2 id="hello">Habari</h2>
+<p style="text-align:center;color:#aaa;font-size:13px;margin-top:6px" id="info"></p>
+<div class="saldo"><small>SALIO LAKO - WEWE PEKEE</small><h3 id="salio">TZS 0</h3><p id="summary">Mara 0</p></div>
+<div class="notice">Lipa Namba ya KOBA: <b style="color:#FFE082;font-size:16px">2290712</b><br>Jina: SALAWE ALUMNI KOBA</div>
+<button class="b2" onclick="funguaLipa()">+ Changa Sasa - Lipa</button>
+<h3 style="margin-top:18px;font-size:15px">📋 Historia Yako</h3>
+<div id="hist"></div>
+<button class="b3" onclick="toka()">Toka</button>
+</div>
+<div class="card hide" id="adminDash">
+<h2>👑 UKUMBI WA ADMIN - 🔥 LIVE</h2>
+<p style="text-align:center;color:#aaa;font-size:13px">Karibu Laurent! Wanachama wote kutoka simu zote wanaonekana hapa!</p>
+<div class="saldo"><small>JUMLA YA HELA ZOTE ZILIZOTHIBITISHWA</small><h3 id="adminTotal">TZS 0</h3><p id="adminCount">Wanachama 0</p></div>
+<div class="tabs">
+<button id="tab1" class="b3 tab-active" onclick="showAdminTab('members')">Wanachama</button>
+<button id="tab2" class="b3" onclick="showAdminTab('announce')">Tangaza</button>
+</div>
+<div id="adminMembers">
+<h3 style="margin-top:12px;font-size:15px">👥 Orodha ya Wanachama Wote - Simu Zote</h3>
+<div id="memberList"></div>
+</div>
+<div id="adminAnnounce" class="hide">
+<h3 style="margin-top:12px;font-size:15px">📢 Andika Tangazo Jipya</h3>
+<textarea id="newAnnounce" rows="3" placeholder="Andika tangazo hapa..."></textarea>
+<button class="bGold" onclick="tumaTangazo()">Tuma Tangazo Kwa Wote</button>
+</div>
+<button class="b3" onclick="toka()">Toka Kama Admin</button>
+</div>
+<div class="popup hide" id="payPopup">
+<div class="popup-box">
+<h2 style="text-align:center">💰 CHANGA KOBA - Hatua 1</h2>
+<div class="koba-num"><small>LIPA NAMBA YA KOBA</small><h3>2290712</h3><p style="font-size:13px;margin-top:5px">Jina: SALAWE ALUMNI KOBA</p></div>
+<button class="copy-btn" onclick="nakili()">📋 NAKILI 2290712</button>
+<label style="font-size:13px;font-weight:bold;display:block;margin-top:12px">CHAGUA KIASI</label>
+<select id="kiasi"><option value="1000">TZS 1,000</option><option value="2000">TZS 2,000</option><option value="5000">TZS 5,000</option><option value="10000">TZS 10,000</option><option value="20000">TZS 20,000</option><option value="50000">TZS 50,000</option><option value="100000">TZS 100,000</option></select>
+<label style="font-size:13px;font-weight:bold;display:block;margin-top:14px">CHAGUA MTANDAO WAKO</label>
+<div class="net-grid">
+<button id="btn0" style="background:#E60000;color:#fff" onclick="chaguaNet('M-PESA',0)">🔴 M-PESA</button>
+<button id="btn1" style="background:#0066FF;color:#fff" onclick="chaguaNet('Tigo Pesa',1)">🔵 Tigo Pesa</button>
+<button id="btn2" style="background:#FF0000;color:#fff" onclick="chaguaNet('Airtel Money',2)">🔴 Airtel Money</button>
+<button id="btn3" style="background:#FF6B00;color:#fff" onclick="chaguaNet('Halopesa',3)">🟠 Halopesa</button>
+<button id="btn4" style="background:#00A651;color:#fff" onclick="chaguaNet('EzyPesa',4)">🟢 EzyPesa</button>
+<button id="btn5" style="background:#8E44AD;color:#fff" onclick="chaguaNet('AzamPesa',5)">🟣 AzamPesa</button>
+<button id="btn6" style="background:#0099CC;color:#fff" onclick="chaguaNet('T-Pesa',6)">🔵 T-Pesa</button>
+<button id="btn7" style="background:#333;color:#fff" onclick="chaguaNet('Benki',7)">🏦 Benki</button>
+</div>
+<p id="netInfo" style="text-align:center;color:#FFE082;font-size:13px;margin-top:10px">Umechagua: M-PESA</p>
+<div class="steps" id="stepsBox"></div>
+<button class="bOrange" onclick="nimeLipa()">➡️ NIMELIPA - Nenda Kuthibitisha</button>
+<button class="b3" onclick="fungaLipa()">Ghairi</button>
+</div>
+</div>
+<div class="popup hide" id="verifyPopup">
+<div class="popup-box">
+<h2 style="text-align:center">✅ THIBITISHA MALIPO - Hatua 2</h2>
+<p style="text-align:center;color:#aaa;font-size:13px;margin-top:5px">Weka SMS ya kuthibitisha uliyopokea kutoka <b id="verifyNet">M-PESA</b></p>
+<div class="verify-box">
+<h3>📩 SMS YA KUTHIBITISHA</h3>
+<p style="font-size:12px;color:#aaa;text-align:center;margin-top:5px">Kiasi: <b id="verifyKiasi" style="color:#fff">TZS 1,000</b> | Lipa Namba: 2290712</p>
+<label style="font-size:13px;font-weight:bold;display:block;margin-top:12px">1. NAMBA YA MUAMALA</label>
+<input id="transId" placeholder="Mf: HAB9X... - Namba kutoka kwenye SMS">
+<label style="font-size:13px;font-weight:bold;display:block;margin-top:12px">2. BANDIKA SMS YOTE HAPA</label>
+<textarea id="smsText" rows="4" placeholder="Copy SMS uliyopokea, Paste hapa..."></textarea>
+<div class="example"><b>Mfano:</b> "HAB9X... Imethibitishwa. Umelipa TZS 5,000 kwa SALAWE ALUMNI KOBA..."<br><br><b>⚠️ Bila SMS, malipo hayatatumwa kwa Admin!</b></div>
+</div>
+<button class="b2" onclick="thibitishaNaTuma()">🔒 THIBITISHA NA TUMA KWA ADMIN</button>
+<button class="b3" onclick="rudiKulipa()">⬅️ Rudi Nyuma</button>
+</div>
+</div>
+<p class="foot">© 2026 SALAWE ALUMNI KOBA - APP | Lipa Namba: 2290712 | 🔥 Powered by Firebase</p>
+<script>
+// ===== 🔥 FIREBASE YAKO - TAYARI IMEWEKWA! USIBADILISHE! =====
+var DB_URL = "https://salawe-koba-default-rtdb.firebaseio.com";
+// ==============================================================
+var users = {};
+var announces = [];
+var current = localStorage.getItem('koba_current') || '';
+var ADMIN_NUM = '255622016657';
+var net = 'M-PESA';
+var deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', function(e){ e.preventDefault(); deferredPrompt=e; });
+function installApp(){ if(deferredPrompt){ deferredPrompt.prompt(); } else { alert('Kwenye Chrome bonyeza ... juu kulia > Add to Home screen'); } }
+function onyesha(id){ ['reg','login','adminLogin','dash','adminDash'].forEach(function(x){ document.getElementById(x).classList.add('hide'); }); document.getElementById(id).classList.remove('hide'); }
+function nakili(){ var kiasi=document.getElementById('kiasi').value; navigator.clipboard.writeText('2290712').then(function(){ alert('✅ Imenakiliwa!\n\nLipa Namba: 2290712\nJina: SALAWE ALUMNI KOBA\nKiasi: TZS '+parseInt(kiasi).toLocaleString()+'\nMtandao: '+net); }); }
+function tumaKwaAdmin(ujumbe){ var msg=encodeURIComponent(ujumbe); window.open('https://wa.me/'+ADMIN_NUM+'?text='+msg,'_blank'); setTimeout(function(){ if(confirm('Umetuma WhatsApp kwa Admin? Kama huna WhatsApp, bonyeza OK kutuma SMS')){ window.location.href='sms:+'+ADMIN_NUM+'?body='+msg; } },1500); }
+async function firebaseGet(path){ try{ var r=await fetch(DB_URL+path+'.json'); if(!r.ok) return null; return await r.json(); }catch(e){ return null; } }
+async function firebasePut(path, data){ try{ await fetch(DB_URL+path+'.json',{method:'PUT',body:JSON.stringify(data)}); return true; }catch(e){ return false; } }
+async function firebasePatch(path, data){ try{ await fetch(DB_URL+path+'.json',{method:'PATCH',body:JSON.stringify(data)}); return true; }catch(e){ return false; } }
+async function loadAll(){
+  var u = await firebaseGet('/users');
+  if(u) users = u;
+  var a = await firebaseGet('/announces');
+  if(a){ announces = Object.values(a); } else { announces = [{text:'Karibu kwenye App ya SALAWE ALUMNI KOBA! Changa sasa kupitia Lipa Namba 2290712. Elimu ni Ufunguo wa Maisha!', date:'22/11/2026'}]; }
+  document.getElementById('syncStatus').innerText = "🔥 Firebase: Imeunganishwa! Wanachama: "+Object.keys(users).length;
+  onyeshaMatangazo();
+  if(current && users[current]){ funguaDash(); }
+  // Refresh kila sekunde 5 - mtu akijisajili, Admin ataona!
+  setInterval(async function(){
+    var nu = await firebaseGet('/users');
+    if(nu){ users = nu; if(current && users[current]) sasisha(); if(!document.getElementById('adminDash').classList.contains('hide')) funguaAdmin(); }
+    var na = await firebaseGet('/announces');
+    if(na){ announces = Object.values(na); onyeshaMatangazo(); }
+  }, 5000);
+}
+function onyeshaMatangazo(){
+  var html='';
+  for(var i=announces.length-1;i>=0;i--){ html+='<div class="announce"><b>📢 '+announces[i].date+'</b><p style="margin-top:5px">'+announces[i].text+'</p></div>'; }
+  document.getElementById('announceList').innerHTML=html;
+}
+async function tumaTangazo(){
+  var t=document.getElementById('newAnnounce').value.trim();
+  if(!t){ alert('Andika tangazo kwanza!'); return; }
+  var d=new Date(); var obj={text:t, date:d.toLocaleDateString()};
+  var key='a'+Date.now();
+  await firebasePut('/announces/'+key, obj);
+  announces.push(obj); onyeshaMatangazo();
+  document.getElementById('newAnnounce').value='';
+  alert('Tangazo limetumwa kwa wote! 🔥');
+}
+async function jisajili(){
+  var jina=document.getElementById('rJina').value.trim();
+  var simu=document.getElementById('rSimu').value.trim();
+  var mwaka=document.getElementById('rMwaka').value;
+  var pass=document.getElementById('rPass').value.trim();
+  if(!jina||!simu||!mwaka||!pass){ alert('Jaza sehemu zote!'); return; }
+  var existing = await firebaseGet('/users/'+simu);
+  if(existing){ alert('Namba hii tayari imesajiliwa, ingia.'); onyesha('login'); return; }
+  var newUser = {jina:jina, simu:simu, mwaka:mwaka, pass:pass, total:0, hist:[], histAmt:[], transIds:[]};
+  await firebasePut('/users/'+simu, newUser);
+  users[simu]=newUser; current=simu; localStorage.setItem('koba_current',current);
+  tumaKwaAdmin('🔔 MTU MPYA KOBA! 🔥\n\nJina: '+jina+'\nSimu: '+simu+'\nMwaka: '+mwaka);
+  alert('Karibu '+jina+'! Umesajiliwa kwenye Firebase! 🔥'); funguaDash();
+}
+async function ingia(){
+  var simu=document.getElementById('lSimu').value.trim();
+  var pass=document.getElementById('lPass').value.trim();
+  var u = await firebaseGet('/users/'+simu);
+  if(!u){ alert('Namba hii haijasajiliwa. Jisajili kwanza.'); onyesha('reg'); return; }
+  if(u.pass!==pass){ alert('Password sio sahihi!'); return; }
+  users[simu]=u; current=simu; localStorage.setItem('koba_current',current); funguaDash();
+}
+async function ingiaAdmin(){
+  var simu=document.getElementById('aSimu').value.trim();
+  var pass=document.getElementById('aPass').value.trim();
+  if(!simu || !pass){ alert('⚠️ Weka Namba ya Admin na Password!'); return; }
+  if((simu=='0622016657'||simu=='622016657'||simu=='255622016657'||simu=='+255622016657') && pass=='admin123'){
+    var u = await firebaseGet('/users');
+    if(u) users = u;
+    onyesha('adminDash'); funguaAdmin(); alert('👑 Karibu Laurent! Wanachama wote kutoka simu zote wanaonekana hapa! 🔥');
+  } else { alert('❌ Namba au Password ya Admin sio sahihi!\n\nNamba: 0622016657\nPassword: admin123'); }
+}
+function funguaAdmin(){
+  var total=0; var count=0; var html='';
+  for(var k in users){ total+=Number(users[k].total||0); count++; var histHtml=''; var h=users[k].hist||[]; var ha=users[k].histAmt||[]; var ti=users[k].transIds||[]; for(var i=0;i<h.length;i++){ histHtml+='<div style="font-size:12px;color:#ccc;margin-top:4px">• '+h[i]+' - '+(ha[i]||'')+' - Muamala: '+(ti[i]||'--')+'</div>'; } html+='<div class="admin-card"><b>'+users[k].jina+'</b><br>Simu: '+users[k].simu+' | Mwaka: '+users[k].mwaka+'<br>Jumla: <b>TZS '+Number(users[k].total||0).toLocaleString()+'</b> | Mara: '+h.length+histHtml+'</div>'; }
+  if(count==0) html='<p style="color:#aaa;text-align:center;margin-top:10px">Hakuna mwanachama bado<br><br>Waambie wajisajili upya kwenye App hii mpya ya Firebase!</p>';
+  document.getElementById('adminTotal').innerText='TZS '+total.toLocaleString();
+  document.getElementById('adminCount').innerText='Wanachama '+count+' | Michango iliyothibitishwa: TZS '+total.toLocaleString();
+  document.getElementById('memberList').innerHTML=html;
+}
+function showAdminTab(tab){
+  document.getElementById('adminMembers').classList.add('hide');
+  document.getElementById('adminAnnounce').classList.add('hide');
+  document.getElementById('tab1').classList.remove('tab-active');
+  document.getElementById('tab2').classList.remove('tab-active');
+  if(tab=='members'){ document.getElementById('adminMembers').classList.remove('hide'); document.getElementById('tab1').classList.add('tab-active'); funguaAdmin(); }
+  else { document.getElementById('adminAnnounce').classList.remove('hide'); document.getElementById('tab2').classList.add('tab-active'); }
+}
+function funguaDash(){ var u=users[current]; if(!u) return; onyesha('dash'); document.getElementById('hello').innerText='Habari, '+u.jina; document.getElementById('info').innerText='Simu: '+u.simu+' | Mwaka: '+u.mwaka; sasisha(); }
+function sasisha(){ var u=users[current]; if(!u) return; var h=u.hist||[]; var ha=u.histAmt||[]; document.getElementById('salio').innerText='TZS '+Number(u.total||0).toLocaleString(); document.getElementById('summary').innerText='Umechangia (Iliyothibitishwa) TZS '+Number(u.total||0).toLocaleString()+' | Mara '+h.length; var html=''; if(h.length===0){ html='<p style="color:#aaa;margin-top:10px;text-align:center">Hujachanga bado</p>'; } else { for(var i=h.length-1;i>=0;i--){ html+='<div class="hrow"><span>'+h[i]+'</span><b>'+(ha[i]||'')+'</b></div>'; } } document.getElementById('hist').innerHTML=html; }
+function funguaLipa(){ document.getElementById('payPopup').classList.remove('hide'); chaguaNet('M-PESA',0); }
+function fungaLipa(){ document.getElementById('payPopup').classList.add('hide'); }
+function chaguaNet(n,idx){
+  net=n;
+  for(var i=0;i<8;i++){ document.getElementById('btn'+i).classList.remove('net-active'); }
+  document.getElementById('btn'+idx).classList.add('net-active');
+  document.getElementById('netInfo').innerText='Umechagua: '+n;
+  var kiasi=document.getElementById('kiasi').value;
+  var code='*150*00#'; if(n=='M-PESA') code='*150*00#'; if(n=='Tigo Pesa') code='*150*01#'; if(n=='Airtel Money') code='*150*60#'; if(n=='Halopesa') code='*150*88#'; if(n=='EzyPesa') code='*150*02#'; if(n=='AzamPesa') code='*150*08#'; if(n=='T-Pesa') code='*150*71#';
+  var steps='';
+  if(n=='Benki'){ steps='<b>📌 HATUA ZA KULIPA - BENKI:</b><br>1. Fungua App ya Benki yako<br>2. Chagua Transfer / Lipa<br>3. Weka Lipa Namba <b>2290712</b><br>4. Weka kiasi <b>TZS '+parseInt(kiasi).toLocaleString()+'</b><br>5. Thibitisha, utapata SMS<br>6. Bonyeza NIMELIPA hapa chini'; }
+  else { steps='<b>📌 HATUA ZA KULIPA - '+n+':</b><br>1. Toka hapa, fungua <b>'+n+' App</b> au piga <b>'+code+'</b><br>2. Chagua <b>Lipa</b> -> <b>Lipa Namba</b><br>3. Weka <b>2290712</b><br>4. Weka kiasi <b>TZS '+parseInt(kiasi).toLocaleString()+'</b><br>5. Weka PIN, thibitisha - utapata SMS<br>6. Bonyeza NIMELIPA hapa chini'; }
+  document.getElementById('stepsBox').innerHTML=steps;
+}
+function nimeLipa(){
+  var kiasi=document.getElementById('kiasi').value;
+  document.getElementById('payPopup').classList.add('hide');
+  document.getElementById('verifyPopup').classList.remove('hide');
+  document.getElementById('verifyNet').innerText=net;
+  document.getElementById('verifyKiasi').innerText='TZS '+parseInt(kiasi).toLocaleString();
+  document.getElementById('transId').value=''; document.getElementById('smsText').value='';
+}
+function rudiKulipa(){ document.getElementById('verifyPopup').classList.add('hide'); document.getElementById('payPopup').classList.remove('hide'); }
+async function thibitishaNaTuma(){
+  var transId=document.getElementById('transId').value.trim();
+  var sms=document.getElementById('smsText').value.trim();
+  var kiasi=parseInt(document.getElementById('kiasi').value);
+  if(!transId || transId.length < 5){ alert('❌ Weka Namba ya Muamala kutoka kwenye SMS!'); return; }
+  if(!sms || sms.length < 20){ alert('❌ BANDIKA SMS yote ya kuthibitisha!'); return; }
+  var smsLower=sms.toLowerCase();
+  var inaThibitisha = smsLower.includes('imethibitishwa') || smsLower.includes('thibitishwa') || smsLower.includes('confirmed') || smsLower.includes('umelipa') || smsLower.includes('umelipia') || smsLower.includes('received') || smsLower.includes('success') || smsLower.includes('2290712') || smsLower.includes('salawe') || smsLower.includes('koba');
+  if(!inaThibitisha){ if(!confirm('⚠️ SMS haionekani kuwa ya kuthibitisha. Umehakika ni SMS sahihi?')){ return; } }
+  for(var k in users){ var ti=users[k].transIds||[]; if(ti.includes(transId)){ alert('❌ Namba hii ya Muamala imeshawahi kutumika!'); return; } }
+  var u=users[current];
+  var newTotal = Number(u.total||0) + kiasi;
+  var d=new Date(); var tarehe=d.toLocaleDateString()+' '+d.getHours()+':'+(d.getMinutes()<10?'0':'')+d.getMinutes();
+  var newHist = (u.hist||[]).concat([tarehe+' ✅ Imethibitishwa']);
+  var newHistAmt = (u.histAmt||[]).concat(['TZS '+kiasi.toLocaleString()+' - '+net+' Lipa']);
+  var newTrans = (u.transIds||[]).concat([transId]);
+  await firebasePatch('/users/'+current, {total:newTotal, hist:newHist, histAmt:newHistAmt, transIds:newTrans});
+  u.total=newTotal; u.hist=newHist; u.histAmt=newHistAmt; u.transIds=newTrans; sasisha();
+  document.getElementById('verifyPopup').classList.add('hide');
+  var ujumbe='✅ MCHANGO UMETHIBITISHWA KOBA! 🔥\n\nJina: '+u.jina+'\nSimu: '+u.simu+'\nMwaka: '+u.mwaka+'\nMtandao: '+net+'\nAme LIPA: TZS '+kiasi.toLocaleString()+'\nLipa Namba: 2290712\nNamba ya Muamala: '+transId+'\nSMS: '+sms.substring(0,150)+'\nJumla yake sasa: TZS '+newTotal.toLocaleString()+'\nTarehe: '+tarehe;
+  tumaKwaAdmin(ujumbe);
+  alert('✅ ASANTE '+u.jina+'! Malipo YAMETHIBITISHWA! 🔥 Tumemtumia Admin na yamehifadhiwa kwenye Firebase!');
+}
+function toka(){ current=''; localStorage.removeItem('koba_current'); onyesha('login'); }
+loadAll();
+document.getElementById('kiasi').addEventListener('change', function(){ chaguaNet(net, ['M-PESA','Tigo Pesa','Airtel Money','Halopesa','EzyPesa','AzamPesa','T-Pesa','Benki'].indexOf(net)); });
+</script>
+</body>
+  </html>

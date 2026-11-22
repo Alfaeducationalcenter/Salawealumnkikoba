@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SALAWE ALUMNI - KOBA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#FFF8E1;padding:15px}
+.header{background:#1A237E;color:white;text-align:center;padding:25px 15px;border-radius:15px}
+.header h1{font-size:28px}
+.header p{margin-top:8px;opacity:0.9}
+.card{background:white;padding:20px;border-radius:15px;margin-top:15px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+.card h2{color:#1A237E;margin-bottom:10px}
+.btn{display:block;text-align:center;padding:15px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px;font-size:16px}
+.btn-green{background:#25D366;color:white}
+.btn-brown{background:#8D6E63;color:white}
+.changa-box{background:#FFF3E0;border:2px dashed #FF9800;padding:15px;border-radius:10px;text-align:center;margin-top:15px}
+.changa-box h3{color:#E65100}
+#counter{font-size:32px;font-weight:bold;color:#1A237E}
+.footer{text-align:center;margin-top:20px;color:#888;font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>🎓 SALAWE ALUMNI</h1>
+<p>Kikundi cha Wanafunzi wa Zamani wa Salawe<br>Umoja ni Nguvu - KOBA</p>
+</div>
+
+<div class="card">
+<h2>👋 Karibu KOBA</h2>
+<p>Tunajenga umoja, tunasaidiana kwenye shida na raha, na tunachangia maendeleo ya shule yetu ya Salawe.</p>
+<a class="btn btn-green" href="https://wa.me/255000000000?text=Nataka%20kujiunga%20na%20SALAWE%20ALUMNI%20KOBA">💬 JIUNGE NA KOBA - WhatsApp</a>
+<p style="font-size:13px;color:#666;margin-top:10px;text-align:center">Bonyeza hapo juu kutuma ujumbe WhatsApp kujiunga</p>
+</div>
+
+<div class="card">
+<h2>💰 Mfuko wa KOBA - Changa</h2>
+<p>Changia TZS 1,000 kusaidia mfuko wa kikundi.</p>
+<div class="changa-box">
+<h3>💰 Jumla ya Michango Leo</h3>
+<div id="counter">TZS 0</div>
+<p id="countText">Wachangiaji: 0</p>
+<button onclick="changa()" style="background:#FF9800;color:white;border:none;padding:12px 25px;border-radius:8px;font-weight:bold;font-size:16px;margin-top:10px;width:100%">+ Changa TZS 1,000</button>
+</div>
+</div>
+
+<div class="card">
+<h2>📞 Mawasiliano</h2>
+<p><b>Mwenyekiti:</b> Emmanuel Shinje</p>
+<p><b>Mahali:</b> Mwanza, Tanzania</p>
+</div>
+
+<div class="footer">© 2026 SALAWE ALUMNI - KOBA</div>
+
+<script>
+let total = localStorage.getItem('salawe_total') ? parseInt(localStorage.getItem('salawe_total')) : 0;
+let watu = localStorage.getItem('salawe_watu') ? parseInt(localStorage.getItem('salawe_watu')) : 0;
+function update(){
+document.getElementById('counter').innerText = 'TZS ' + total.toLocaleString();
+document.getElementById('countText').innerText = 'Wachangiaji: ' + watu;
+}
+function changa(){
+total += 1000; watu += 1;
+localStorage.setItem('salawe_total', total);
+localStorage.setItem('salawe_watu', watu);
+update();
+alert('Asante! Umechanga TZS 1,000 🎉');
+}
+update();
+</script>
+</body>
+</html>

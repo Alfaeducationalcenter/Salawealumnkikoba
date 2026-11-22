@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SALAWE ALUMNI KOBA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#1a1a1a;color:white;padding:12px}
+.top{background:#0A1A5E;padding:25px 15px;border-radius:18px;text-align:center}
+.top h1{font-size:28px;line-height:1.2}
+.top p{margin-top:15px;opacity:0.9;font-size:15px}
+.box{background:#222;border:1px solid #C9A227;border-radius:18px;padding:20px;margin-top:15px}
+.box h2{font-size:28px;font-family:Georgia,serif}
+.box p.sub{color:#aaa;margin-top:5px;font-size:14px}
+label{display:block;margin-top:20px;font-weight:bold;font-size:13px;letter-spacing:1px}
+select{width:100%;padding:15px;border-radius:14px;background:#333;color:white;border:1px solid #555;margin-top:10px;font-size:16px}
+.btn-search{width:100%;background:#1E40FF;color:white;border:none;padding:15px;border-radius:25px;font-weight:bold;font-size:16px;margin-top:15px}
+.saldo{background:#0A1A5E;padding:20px;border-radius:18px;text-align:center;margin-top:20px}
+.saldo small{color:#FFE082;letter-spacing:1px}
+.saldo h3{font-size:42px;margin:5px 0}
+.saldo p{font-size:18px}
+.mid{text-align:center;color:#aaa;margin:15px 0}
+.btn-changa{width:100%;background:#8A6D00;color:#BFE3FF;border:none;padding:16px;border-radius:14px;font-weight:bold;font-size:17px}
+.btn-toka{width:100%;background:#555;color:white;border:none;padding:16px;border-radius:14px;font-weight:bold;font-size:17px;margin-top:12px}
+.footer{text-align:center;color:#aaa;font-size:12px;margin-top:15px}
+</style>
+</head>
+<body>
+
+<div class="top">
+<h1>SALAWE ALUMNI KOBA</h1>
+<p>Elimu ni Ufunguo wa Maisha</p>
+<p style="font-size:14px">Admin: Laurent | +255 622 016 657 | Salawe - Shinyanga</p>
+</div>
+
+<div class="box">
+<h2>Find your KOBA</h2>
+<p class="sub">Chagua mwaka uone wanachama wenzako</p>
+<label>WHAT DO YOU WANT TO JOIN?</label>
+<select id="mwaka">
+<option>Choose level</option>
+<option>2020</option>
+<option>2021</option>
+<option>2022</option>
+<option>2023</option>
+<option>2024</option>
+<option>2025</option>
+<option>2026</option>
+</select>
+<button class="btn-search" onclick="tafuta()">🔍 SEARCH</button>
+</div>
+
+<div class="box">
+<h2 style="font-family:Arial;font-size:24px">Habari, Emmanuel Maharage</h2>
+<div class="saldo">
+<small>SALIO LAKO - KOBA</small>
+<h3 id="salio">TZS 0</h3>
+<p>Umechangia: <span id="umechangia">TZS 0</span></p>
+</div>
+<p class="mid" id="status">Hujachanga bado</p>
+<button class="btn-changa" onclick="changa()">+ Changa TZS 1,000 Sasa</button>
+<button class="btn-toka" onclick="alert('Umetoka')">Toka</button>
+</div>
+
+<p class="footer">© 2026 SALAWE ALUMNI KOBA | Admin Laurent +255 622 016 657</p>
+
+<script>
+let total = 0;
+function changa(){
+total += 1000;
+document.getElementById('salio').innerText = 'TZS ' + total.toLocaleString();
+document.getElementById('umechangia').innerText = 'TZS ' + total.toLocaleString();
+document.getElementById('status').innerText = 'Asante! Umechanga';
+alert('Asante! Umechanga TZS 1,000 🎉');
+}
+function tafuta(){
+let m = document.getElementById('mwaka').value;
+if(m=='Choose level'){alert('Chagua mwaka kwanza');}else{alert('Wanachama wa mwaka '+m+' - Karibu!');}
+}
+</script>
+</body>
+</html>
